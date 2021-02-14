@@ -1,2 +1,2 @@
 language = "python3"
-run = "python *.py"
+run = "python '20210207/Klinov.py"
