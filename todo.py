@@ -8,8 +8,8 @@ exit   - выход из пртложения
 userAnswer = 0
 todo = {}
 
-print=("Введите команду")
-print=("список команд - введите help")
+print("Введите команду")
+print("список команд - введите help")
 
 while True:
   userAnswer = input().lower()
