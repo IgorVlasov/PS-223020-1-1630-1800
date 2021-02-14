@@ -17,11 +17,19 @@ white True;
   if userAnsler == "exit"
     print("програма закрыта")
   elif userAnswer == "add"
+  print("введите дату в формате дд")
+  todo Key = input
+   print("что нужно сделать?")
+   todoValue = input()
+
+   todo {todoKey} = todoValue
     print("дело добавлено")
   elif userAnswer == "remove"
     print("дело удалено")
   elif userAnswer == "show"
-    print userAnswer("дело показано") 
+    print ("\nсписок дел:")
+    for i in sorted(todo.Keys() );
+    print( ; + "\t" + {todo.Keys} )
   elif userAnswer == "help"
     print(HELP)
   else;
