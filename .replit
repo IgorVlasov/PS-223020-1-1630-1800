@@ -1,3 +1,2 @@
 language = "python3"
-run = "python *.py"
-'20210207/Diomin.py'"
+run = "python 'to_do.py'"
