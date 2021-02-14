@@ -1,2 +1,2 @@
 language = "python3"
-run = "python '20210207/afonin.py'"
+run = "python 'todo.py'"
