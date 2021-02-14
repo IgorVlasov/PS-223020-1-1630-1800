@@ -17,11 +17,18 @@ while True:
   if userAnswer == "exit":
     print("Программа закрываеться")
   elif userAnswer == "add":
-    print ("дело добавленно")
+    print ("Введите дату в форме ДД.ММ.ГГГГ")
+    todoValue = input()
+
+    todo[todoKey] = todoValue
+    print ("Дело добвленно")
   elif userAnswer == "remove":
-    print ("дело добавленно")
+    print ("что нужно сделать")
   elif userAnswer == "show":
-    print ("дело добавленно")
+    print ("\nсписок дел")
+
+    for i in sorted (todo.keys() ):
+      print (i + "\t + todo[todoKey]")
   elif userAnswer == "help":
    print (HELP)
   else:
