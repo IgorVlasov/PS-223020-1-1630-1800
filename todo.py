@@ -4,11 +4,30 @@ HELP = """
 help    - список команд
 add     - добавить дело
 remove  - удалить объект
-show    - показать список дел
+showall - показать список весь дел
+show    - список дел по дате
 exit    - выход из приложения
 """
 userAnswer = 0
 todo = {}
+
+
+def checkDate(Date):
+  try:
+    time.strptime(Date, '%d.%m.%Y')
+    return True
+  except ValueError:
+    print('Неверный формат даты')
+    return False
+
+def addTask(Date, Task):
+  if uDate in todo:
+    todo[uDate].append(uTask)
+  else:
+    todo[uDate] = [uTask]
+  print(  f"На {uDate} назначено '{uTask}'" )
+
+  
 
 print("Введите команду")
 print("список команд - введите help")
@@ -21,28 +40,32 @@ while True:
     break
   elif userAnswer == "add":
     uDate = input("Введите дату в формате ДД.ММ.ГГГГ\n")
-    try:
-      valid_date = time.strptime(uDate, '%m.%d.%Y')
-    except ValueError:
-      print('Invalid date!')
-
-
-
+    if checkDate(uDate) == False:
+      continue
     uTask = input("Что нужно сделать?\n")
+    addTask(uDate, uTask)
 
-    todo[uDate] = uTask
-
-    print("дело добавлено")
   elif userAnswer == "remove":
     print("дело удалено")
-  elif userAnswer == "show":
+  elif userAnswer == "showall":
     print("\nСписок дел:")
 
-    for i in sorted( todo.keys() ):
-      print( i + "\t" + todo[todoKey] )
-
-
+    for printDate in sorted( todo.keys() ):
+      for printTask in todo[printDate]:
+        print( f"[ {printDate} ]\t{printTask} ")
+  elif userAnswer == "show":
+    uDate = input("Введите дату:\n")
     
+    if checkDate(uDate) == False:
+      continue
+    
+    if uDate in todo:
+      print(f"\nСписок дел на {uDate}:")
+      for printTask in todo[uDate]:
+        print( f"[ ] {printTask}.")
+    else:
+      print(f"На {uDate} дел нет!")
+      
   elif userAnswer == "help":
     print(HELP)
   else:
