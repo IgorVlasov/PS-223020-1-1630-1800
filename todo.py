@@ -1,3 +1,5 @@
+import time
+
 HELP = """
 help    - список команд
 add     - добавить дело
@@ -16,14 +18,19 @@ while True:
 
   if userAnswer == "exit":
     print("Программа закрыта")
+    break
   elif userAnswer == "add":
-    print("Введите дату в формате ДД.ММ.ГГГГ")
-    todoKey = input()
+    uDate = input("Введите дату в формате ДД.ММ.ГГГГ\n")
+    try:
+      valid_date = time.strptime(uDate, '%m.%d.%Y')
+    except ValueError:
+      print('Invalid date!')
 
-    print("Что нужно сделать?")
-    todoValue = input()
 
-    todo[todoKey] = todoValue
+
+    uTask = input("Что нужно сделать?\n")
+
+    todo[uDate] = uTask
 
     print("дело добавлено")
   elif userAnswer == "remove":
